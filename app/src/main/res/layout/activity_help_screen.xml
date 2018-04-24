@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ravonda.cita495.HelpScreen">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="121dp">
+
+        <TextView
+            android:id="@+id/text_view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HELP SCREEN INFORMATION" />
+
+        <TextView
+            android:id="@+id/text_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="36dp"
+            android:text="This application turns your steps into a work of art!" />
+
+        <TextView
+            android:id="@+id/text_view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="78dp"
+            android:text="In order to use this app properly, you must do the following:" />
+
+        <TextView
+            android:id="@+id/text_view4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="116dp"
+            android:text="1. Open the application. Select 'Start Navigation' and begin walking along your desired route." />
+
+        <TextView
+            android:id="@+id/text_view5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="183dp"
+            android:text="2. When you have walked the desired amount of time/ the desired route, tap the 'End Navigation' button to end the navigation recording." />
+
+        <TextView
+            android:id="@+id/text_view6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="170dp"
+            android:text="3. The application will then compile and show you an image of your route generated as a piece of artwork. At this point, you will be able to do one of a few things: You may save the image, edit the image, be taken to the gallery, or be taken back to the home screen in order to create a new piece of art!" />
+
+        <TextView
+            android:id="@+id/text_view7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:text="This application was created by Savannah M. Floyd, a Computer Science and Computing in the Arts BA student at College of Charleston. It was made for CSCI 495 during the Spring 2018 semester. This application is not to be remade or distributed without permission from the creator. For more information, please email Savannah at floydsm1@g.cofc.edu" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
