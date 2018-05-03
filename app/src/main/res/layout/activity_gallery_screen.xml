@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.ravonda.cita495.GalleryScreen">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/imagegallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/img"
+            android:adjustViewBounds="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

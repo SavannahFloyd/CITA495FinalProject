@@ -3,7 +3,7 @@ package com.example.ravonda.cita495;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +16,8 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
@@ -24,11 +26,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String KEY_LOCATION = "location";
     public LatLng mCurrentLocation;
     public CameraPosition mCameraPosition;
-    public Location mLastKnownLocation;
+    public LatLng mLastKnownLocation;
+    public LatLng center;
+    public Boolean onPage;
+    public Polyline line;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        onPage = true;
         if (savedInstanceState != null) {
             mCurrentLocation = savedInstanceState.getParcelable(KEY_LOCATION);
             mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
@@ -41,6 +47,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 startActivity(new Intent(MapsActivity.this, GalleryScreen.class));
+                onPage = false;
             }
         });
     }
@@ -68,6 +75,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         else {
             map.setMyLocationEnabled(true);
         }
+        /**
+         * PSEUDO CODE FOR DRAWING POLYLINE UPDATES
+         *
+         * while user is on navigation screen
+         *      get current location
+         *      if last known location is null
+         *              set current location == to last location
+         *      else if current location is equal to previous location
+         *              do nothing
+         *      else if current location is not equal to previous location
+         *              draw polyline from previous location to current location
+         *              set previous location to current location
+         */
+        while(onPage){
+            if(mLastKnownLocation == null){
+                mLastKnownLocation = mCurrentLocation;
+            }
+            else if (mCurrentLocation == mLastKnownLocation){
+                mLastKnownLocation = mCurrentLocation;
+            }
+            else if(mCurrentLocation != mLastKnownLocation){
+                Polyline line = map.addPolyline(new PolylineOptions()
+                        .add(mLastKnownLocation, mCurrentLocation)
+                        .width(5)
+                        .color(Color.BLACK));
+                mLastKnownLocation = mCurrentLocation;
+            }
+        }
     }
-
 }
